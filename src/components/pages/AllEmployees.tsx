@@ -1,7 +1,6 @@
 import { createTheme, Grid, ThemeProvider } from "@mui/material";
 import React, { useEffect } from "react";
-import { getEmployees } from "../../API/getEmployeeJSON";
-import Employee from "../../employeeModel/EmployeeModel";
+import Employee from "../employee/Employee";
 import EmployeeDisplayCard from "../molecules/EmployeeDisplayCard";
 
 const theme = createTheme({
@@ -99,7 +98,7 @@ const AllEmployees = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container wrap="wrap">
+      <Grid container sx={{flexGrow:1}} spacing={2}>
         {employees.map((emplo:Employee) => (
           <Grid item xs={2}>
             <EmployeeDisplayCard employee={emplo} />
