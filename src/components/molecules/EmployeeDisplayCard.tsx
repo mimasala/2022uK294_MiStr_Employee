@@ -1,5 +1,5 @@
 import React from "react";
-import Employee from "../../employeeModel/EmployeeModel";
+import Employee from "../../employee/EmployeeModel";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -56,7 +56,7 @@ const EmployeeDisplayCard = ({ employee }: props) => {
             </ul>
           </CardContent>
           <CardActions>
-            <Button size="small" href={`/employees/${employee.id}` }>details</Button>
+            <Button size="small" href={`/employee/${employee.id}` }>details</Button>
           </CardActions>
         </Card>
   );

@@ -39,13 +39,6 @@ const LoginPage = () => {
             Sign in
           </Typography>
           <Form />
-          <Grid container>
-            <Grid item>
-              <Link href="/register" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </Box>
       </Container>
     </ThemeProvider>

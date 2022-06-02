@@ -1,6 +1,7 @@
-import { createTheme, Grid, ThemeProvider } from "@mui/material";
+import { Box, createTheme, Grid, ThemeProvider } from "@mui/material";
 import React, { useEffect } from "react";
-import Employee from "../employee/Employee";
+import Employee from "../../employee/EmployeeModel";
+import { getEmployees } from "../../employee/EmployeeService";
 import EmployeeDisplayCard from "../molecules/EmployeeDisplayCard";
 
 const theme = createTheme({
@@ -18,93 +19,39 @@ const theme = createTheme({
   },
 });
 
-const employees:Employee[] = [
-  {
-    id: 1,
-    birth_date: "123",
-    first_name: "string;",
-    last_name: "string;",
-    gender: "M",
-    hire_date: "string;",
-  },
-  {
-    id: 4,
-    birth_date: "123",
-    first_name: "kadsjglksdfg",
-    last_name: "askdlfj",
-    gender: "F",
-    hire_date: "KJSFLKJS",
-  },
-  {
-    id: 4,
-    birth_date: "123",
-    first_name: "kadsjglksdfg",
-    last_name: "askdlfj",
-    gender: "F",
-    hire_date: "KJSFLKJS",
-  },
-  {
-    id: 4,
-    birth_date: "123",
-    first_name: "kadsjglksdfg",
-    last_name: "askdlfj",
-    gender: "F",
-    hire_date: "KJSFLKJS",
-  },
-  {
-    id: 4,
-    birth_date: "123",
-    first_name: "kadsjglksdfg",
-    last_name: "askdlfj",
-    gender: "F",
-    hire_date: "KJSFLKJS",
-  },
-  {
-    id: 4,
-    birth_date: "123",
-    first_name: "kadsjglksdfg",
-    last_name: "askdlfj",
-    gender: "F",
-    hire_date: "KJSFLKJS",
-  },
-  {
-    id: 4,
-    birth_date: "123",
-    first_name: "kadsjglksdfg",
-    last_name: "askdlfj",
-    gender: "F",
-    hire_date: "KJSFLKJS",
-  },
-  {
-    id: 4,
-    birth_date: "123",
-    first_name: "kadsjglksdfg",
-    last_name: "askdlfj",
-    gender: "F",
-    hire_date: "KJSFLKJS",
-  },
-  {
-    id: 4,
-    birth_date: "123",
-    first_name: "kadsjglksdfg",
-    last_name: "askdlfj",
-    gender: "F",
-    hire_date: "KJSFLKJS",
-  },
-];
-
 const AllEmployees = () => {
-  
+  const [employees, setEmployees] = React.useState([
+    {
+      birth_date: "none",
+      first_name: "none",
+      last_name: "none",
+      gender: "none",
+      id:0,
+      hire_date:"none"
+    }
+  ]);
+
+  useEffect(() => {
+    getEmployees()
+    .then((response : any) => {
+    setEmployees(response.data)
+   })
+   .catch((error : any) => {
+     console.log(error);
+   });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container sx={{flexGrow:1}} spacing={2}>
-        {employees.map((emplo:Employee) => (
-          <Grid item xs={2}>
-            <EmployeeDisplayCard employee={emplo} />
-          </Grid>
-        ))}
-      </Grid>
+      <Box>
+        <Grid container sx={{justifyContent:"center"}} spacing={2}>
+          {employees.map((emplo: Employee) => (
+            <Grid item>
+              <EmployeeDisplayCard employee={emplo} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </ThemeProvider>
   );
 };
