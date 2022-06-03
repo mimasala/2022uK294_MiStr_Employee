@@ -1,23 +1,11 @@
-import { Box, createTheme, Grid, ThemeProvider } from "@mui/material";
+import { Box, Grid, ThemeProvider } from "@mui/material";
 import React, { useEffect } from "react";
 import Employee from "../../employee/EmployeeModel";
 import { getAllEmployees } from "../../employee/EmployeeService";
 import EmployeeDisplayCard from "../molecules/EmployeeDisplayCard";
+import theme from "./ThemeProvider/ThemeProvider";
 
-const theme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#dcc2ff",
-    },
-    secondary: {
-      main: "#dcc2ff",
-    },
-    background: {
-      default: "#36373d",
-    },
-  },
-});
+
 
 const AllEmployees = () => {
   const [employees, setEmployees] = React.useState([

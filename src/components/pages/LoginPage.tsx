@@ -4,25 +4,13 @@ import "../../App.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { login } from "../../employee/EmployeeService";
 import LoginForm from "../organisms/LoginForm";
 import { useNavigate } from "react-router-dom";
+import theme from "./ThemeProvider/ThemeProvider";
 
-const theme = createTheme({
-  palette: {
-    mode:"dark",
-    primary: {
-      main: '#dcc2ff',
-    },
-    secondary: {
-      main: '#dcc2ff',
-    },
-    background:{
-      default: '#36373d'
-    }
-  },
-});
+
 
 export interface State extends SnackbarOrigin {
   open: boolean;
@@ -83,7 +71,6 @@ const LoginPage = () => {
           <Snackbar autoHideDuration={6000} anchorOrigin={{vertical, horizontal}} open={openSnack.open} onClose={handleClose} key={vertical + horizontal}>
             <Alert severity="error">{errorMessage}</Alert>
           </Snackbar>
-
         </Box>
       </Container>
     </ThemeProvider>
