@@ -1,47 +1,62 @@
-import axios, { AxiosInstance } from "axios";
-import { Cookies } from "react-cookie";
+import axios, { AxiosInstance, AxiosPromise, AxiosResponse } from "axios";
+import { API } from "./API";
 
-const headerConfig = {
-  "Content-Type": "application/json",
-  Authorization: "Bearer " + localStorage.getItem("token"),
+const deleteEmployeeById = (id: string):void => {
+  API.delete(`employee/${id}`);
 };
 
-export const getEmployees = (): any => {
-  return axios({
-    method: "GET",
-    baseURL: "http://localhost:3030/employee",
-    headers: headerConfig,
-  });
-};
-
-export const getAccessToken = (
+export const login =  (
   email: string | FormDataEntryValue | null,
   password: string | FormDataEntryValue | null
-): any => {
-  axios({
-    method: "POST",
-    url: "http://localhost:3030/login",
-    data: {
-      email: email,
-      password: password,
-    },
+) => {
+  return API.post("login", {
+    email: email,
+    password: password,
   })
-    .then((response) => {
-      localStorage.setItem("token", response["data"]["accessToken"]);
-    })
-    .catch((error) => {
-      console.log(error);
-      alert(error.response.request.responseText);
-    });
 };
 
-export const deleteEmployee = (id: string): any => {
-  return axios({
-    method: "DELETE",
-    baseURL: "http://localhost:3030/employee",
-    headers: headerConfig,
-    data: {
-      id: id,
-    },
-  });
+export const getAllEmployees = () => {
+  return API.get("employee");
 };
+
+export const getEmployee = (id: number) => {
+  return API.get(`employee/${id}`);
+};
+
+// const headerConfig = {
+//   "Content-Type": "application/json",
+//   Authorization: "Bearer " + localStorage.getItem("token"),
+// };
+
+// export const getEmployees = (): any => {
+//   return axios({
+//     method: "GET",
+//     baseURL: "http://localhost:3030/employee",
+//     headers: headerConfig,
+//   });
+// };
+
+// export const getAccessToken = (
+//   email: string | FormDataEntryValue | null,
+//   password: string | FormDataEntryValue | null
+// ): AxiosPromise<any> => {
+//   return axios({
+//     method: "POST",
+//     url: "http://localhost:3030/login",
+//     data: {
+//       email: email,
+//       password: password
+//     },
+//   })
+// };
+
+// export const deleteEmployee = (id: string): any => {
+//   return axios({
+//     method: "DELETE",
+//     baseURL: "http://localhost:3030/employee",
+//     headers: headerConfig,
+//     data: {
+//       id: id,
+//     },
+//   });
+// };

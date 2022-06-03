@@ -18,47 +18,39 @@ const EmployeeDisplayCard = ({ employee }: props) => {
     return "male";
   };
   return (
-        <Card sx={{ minWidth: 275, borderRadius:3 }}>
-          <CardContent>
-            <Typography
-              sx={{ fontSize: 14 }}
+    <Card sx={{ minWidth: 275, borderRadius: 3 }}>
+      <CardContent>
+        {/* weird error */}
+        <Typography sx={{ fontSize: 14 }}
               color="text.secondary"
-              gutterBottom
-            >
-              ID: {employee.id}
-            </Typography>
-            <ul>
-              <li>
-                <Typography variant="body2">
-                  Last Name: {employee.first_name}
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body2">
-                  Gender: {getGender(employee.gender)}
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body2">
-                  First Name: {employee.last_name}
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body2">
-                  Birth date: {employee.birth_date}
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body2">
-                  Hire Date: {employee.hire_date}
-                </Typography>
-              </li>
-            </ul>
-          </CardContent>
-          <CardActions>
-            <Button size="small" href={`/employee/${employee.id}` }>details</Button>
-          </CardActions>
-        </Card>
+              gutterBottom>
+          ID: {employee.id}
+        </Typography>
+
+        <Typography variant="body2">
+          Last Name: {employee.first_name}
+        </Typography>
+
+        <Typography variant="body2">
+          Gender: {getGender(employee.gender)}
+        </Typography>
+
+        <Typography variant="body2">
+          First Name: {employee.last_name}
+        </Typography>
+
+        <Typography variant="body2">
+          Birth date: {employee.birth_date}
+        </Typography>
+
+        <Typography variant="body2">Hire Date: {employee.hire_date}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small" href={`/employee/${employee.id}`}>
+          details
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 

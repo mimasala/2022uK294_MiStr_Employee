@@ -1,7 +1,7 @@
 import { Box, createTheme, Grid, ThemeProvider } from "@mui/material";
 import React, { useEffect } from "react";
 import Employee from "../../employee/EmployeeModel";
-import { getEmployees } from "../../employee/EmployeeService";
+import { getAllEmployees } from "../../employee/EmployeeService";
 import EmployeeDisplayCard from "../molecules/EmployeeDisplayCard";
 
 const theme = createTheme({
@@ -32,13 +32,11 @@ const AllEmployees = () => {
   ]);
 
   useEffect(() => {
-    getEmployees()
-    .then((response : any) => {
-    setEmployees(response.data)
-   })
-   .catch((error : any) => {
-     console.log(error);
-   });
+    getAllEmployees().then((response)=>{
+      setEmployees(response["data"])
+    }).catch((error) =>{
+      error.log(error["request"]["responseText"]);
+    })
   }, []);
 
   return (
