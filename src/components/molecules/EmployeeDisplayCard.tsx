@@ -1,5 +1,5 @@
 import React from "react";
-import Employee from "../../employeeModel/EmployeeModel";
+import Employee from "../../employee/EmployeeModel";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -18,47 +18,36 @@ const EmployeeDisplayCard = ({ employee }: props) => {
     return "male";
   };
   return (
-        <Card sx={{ minWidth: 275, borderRadius:3 }}>
-          <CardContent>
-            <Typography
-              sx={{ fontSize: 14 }}
-              color="text.secondary"
-              gutterBottom
-            >
-              ID: {employee.id}
-            </Typography>
-            <ul>
-              <li>
-                <Typography variant="body2">
-                  Last Name: {employee.first_name}
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body2">
-                  Gender: {getGender(employee.gender)}
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body2">
-                  First Name: {employee.last_name}
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body2">
-                  Birth date: {employee.birth_date}
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body2">
-                  Hire Date: {employee.hire_date}
-                </Typography>
-              </li>
-            </ul>
-          </CardContent>
-          <CardActions>
-            <Button size="small" href={`/employees/${employee.id}` }>details</Button>
-          </CardActions>
-        </Card>
+    <Card key={employee.id?.toString()} sx={{ minWidth: 275, borderRadius: 3 }}>
+      <CardContent>
+        <Typography variant="body2" >
+          ID: {employee.id?.toString()}
+        </Typography>
+
+        <Typography variant="body2">
+          Last Name: {employee.first_name}
+        </Typography>
+
+        <Typography variant="body2">
+          Gender: {getGender(employee.gender)}
+        </Typography>
+
+        <Typography variant="body2">
+          First Name: {employee.last_name}
+        </Typography>
+
+        <Typography variant="body2">
+          Birth date: {employee.birth_date}
+        </Typography>
+
+        <Typography variant="body2">Hire Date: {employee.hire_date}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small" href={`/employee/${employee.id}`}>
+          details
+        </Button>
+      </CardActions>
+    </Card>
   );
 };
 
