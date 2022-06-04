@@ -36,8 +36,6 @@ const LoginPage = () => {
     setOpenSnack({ ...openSnack, open: false });
   };
 
-
-
   const checkSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

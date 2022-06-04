@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Employee from "../../employee/EmployeeModel";
 import { getAllEmployees } from "../../employee/EmployeeService";
 import EmployeeDisplayCard from "../molecules/EmployeeDisplayCard";
+import SpeedDialEmployee from "../molecules/SpeedDialEmployee";
 import theme from "./ThemeProvider/ThemeProvider";
 
 const AllEmployees = () => {
@@ -40,6 +41,7 @@ const AllEmployees = () => {
           ))}
         </Grid>
       </Box>
+      <SpeedDialEmployee />
     </ThemeProvider>
   );
 };
