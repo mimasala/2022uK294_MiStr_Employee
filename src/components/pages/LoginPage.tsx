@@ -24,7 +24,30 @@ export interface State extends SnackbarOrigin {
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  
+
+  const delay = (ms: number | undefined) =>
+    new Promise((res) => setTimeout(res, ms));
+
+  const enableButtonOnResponse = async (email: any, password: any) => {
+    var successsss = false
+    login(email, password)
+      .then((value) => {
+        console.log("set token");
+        localStorage.setItem("token", value.data.accessToken);
+        successsss = true
+      })
+      .catch((error) => {
+        setErrorMessage(error.request.responseText);
+        setOpenSnack({ ...openSnack, open: true });
+      });
+      console.log("start wait");
+    await delay(500);
+    if (successsss) {
+      console.log("in success");
+      navigate("/success");
+    }
+  };
+
   const [errorMessage, setErrorMessage] = React.useState("");
   const [openSnack, setOpenSnack] = React.useState<State>({
     open: false,
@@ -41,16 +64,7 @@ const LoginPage = () => {
     const data = new FormData(event.currentTarget);
     const email = data.get("email");
     const password = data.get("password");
-
-    login(email, password)
-      .then((value) => {
-        localStorage.setItem("token", value.data.accessToken);
-        navigate("/");
-      })
-      .catch((error) => {
-        setErrorMessage(error.request.responseText);
-        setOpenSnack({ ...openSnack, open: true });
-      });
+    enableButtonOnResponse(email, password);
   };
 
   const handleLogout = (): void => {

@@ -1,4 +1,4 @@
-import { Box, Grid, ThemeProvider } from "@mui/material";
+import { Box, Container, Grid, ThemeProvider } from "@mui/material";
 import React, { useEffect } from "react";
 import Employee from "../../employee/EmployeeModel";
 import { getAllEmployees } from "../../employee/EmployeeService";
@@ -30,18 +30,19 @@ const AllEmployees = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box>
-        <Grid container sx={{ justifyContent: "center" }} spacing={2}>
-          {employees.map((emplo: Employee) => (
-            <Grid item key={emplo.id?.toString()}>
-              <div>
-                <EmployeeDisplayCard employee={emplo} />
-              </div>
-            </Grid>
-          ))}
+      <Container sx={{ marginTop: 10 }}>
+        <Grid container>
+          <Grid container sx={{ justifyContent: "center" }} spacing={2}>
+            {employees.map((emplo: Employee) => (
+              <Grid item key={emplo.id?.toString()}>
+                <div>
+                  <EmployeeDisplayCard employee={emplo} />
+                </div>
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
-      </Box>
-      <SpeedDialEmployee />
+      </Container>
     </ThemeProvider>
   );
 };
