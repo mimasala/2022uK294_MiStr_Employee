@@ -28,3 +28,7 @@ export const getEmployeeById = (id: number) => {
 export const updateEmployeeByID = (id: number, employee: EmployeeModelWithoutID) => {
   return API.put(`employee/${id}`, employee)
 }
+
+export const createEmployee = (employee: EmployeeModelWithoutID) => {
+  return API.post("employee", employee);
+}
