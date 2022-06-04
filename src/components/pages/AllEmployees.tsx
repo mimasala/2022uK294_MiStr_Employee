@@ -5,8 +5,6 @@ import { getAllEmployees } from "../../employee/EmployeeService";
 import EmployeeDisplayCard from "../molecules/EmployeeDisplayCard";
 import theme from "./ThemeProvider/ThemeProvider";
 
-
-
 const AllEmployees = () => {
   const [employees, setEmployees] = React.useState([
     {
@@ -14,26 +12,30 @@ const AllEmployees = () => {
       first_name: "none",
       last_name: "none",
       gender: "none",
-      id:0,
-      hire_date:"none"
-    }
+      id: 0,
+      hire_date: "none",
+    },
   ]);
 
   useEffect(() => {
-    getAllEmployees().then((response)=>{
-      setEmployees(response["data"])
-    }).catch((error) =>{
-      error.log(error["request"]["responseText"]);
-    })
+    getAllEmployees()
+      .then((response) => {
+        setEmployees(response["data"]);
+      })
+      .catch((error) => {
+        error.log(error["request"]["responseText"]);
+      });
   }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <Box>
-        <Grid container sx={{justifyContent:"center"}} spacing={2}>
+        <Grid container sx={{ justifyContent: "center" }} spacing={2}>
           {employees.map((emplo: Employee) => (
-            <Grid item>
-              <EmployeeDisplayCard employee={emplo} />
+            <Grid item key={emplo.id?.toString()}>
+              <div>
+                <EmployeeDisplayCard employee={emplo} />
+              </div>
             </Grid>
           ))}
         </Grid>

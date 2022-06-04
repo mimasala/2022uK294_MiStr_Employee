@@ -1,5 +1,7 @@
 import axios, { AxiosInstance, AxiosPromise, AxiosResponse } from "axios";
 import { API } from "./API";
+import Employee from "./EmployeeModel";
+import EmployeeModelWithoutID from "./EmployeeModelWithoutID";
 
 const deleteEmployeeById = (id: string):void => {
   API.delete(`employee/${id}`);
@@ -22,3 +24,7 @@ export const getAllEmployees = () => {
 export const getEmployeeById = (id: number) => {
   return API.get(`employee/${id}`);
 };
+
+export const updateEmployeeByID = (id: number, employee: EmployeeModelWithoutID) => {
+  return API.put(`employee/${id}`, employee)
+}
