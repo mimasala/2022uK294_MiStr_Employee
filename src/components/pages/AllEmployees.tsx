@@ -1,23 +1,10 @@
-import { Box, createTheme, Grid, ThemeProvider } from "@mui/material";
+import { Box, Grid, ThemeProvider } from "@mui/material";
 import React, { useEffect } from "react";
 import Employee from "../../employee/EmployeeModel";
 import { getAllEmployees } from "../../employee/EmployeeService";
 import EmployeeDisplayCard from "../molecules/EmployeeDisplayCard";
-
-const theme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#dcc2ff",
-    },
-    secondary: {
-      main: "#dcc2ff",
-    },
-    background: {
-      default: "#36373d",
-    },
-  },
-});
+import SpeedDialEmployee from "../molecules/SpeedDialEmployee";
+import theme from "./ThemeProvider/ThemeProvider";
 
 const AllEmployees = () => {
   const [employees, setEmployees] = React.useState([
@@ -26,30 +13,35 @@ const AllEmployees = () => {
       first_name: "none",
       last_name: "none",
       gender: "none",
-      id:0,
-      hire_date:"none"
-    }
+      id: 0,
+      hire_date: "none",
+    },
   ]);
 
   useEffect(() => {
-    getAllEmployees().then((response)=>{
-      setEmployees(response["data"])
-    }).catch((error) =>{
-      error.log(error["request"]["responseText"]);
-    })
+    getAllEmployees()
+      .then((response) => {
+        setEmployees(response["data"]);
+      })
+      .catch((error) => {
+        error.log(error["request"]["responseText"]);
+      });
   }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <Box>
-        <Grid container sx={{justifyContent:"center"}} spacing={2}>
+        <Grid container sx={{ justifyContent: "center" }} spacing={2}>
           {employees.map((emplo: Employee) => (
-            <Grid item>
-              <EmployeeDisplayCard employee={emplo} />
+            <Grid item key={emplo.id?.toString()}>
+              <div>
+                <EmployeeDisplayCard employee={emplo} />
+              </div>
             </Grid>
           ))}
         </Grid>
       </Box>
+      <SpeedDialEmployee />
     </ThemeProvider>
   );
 };

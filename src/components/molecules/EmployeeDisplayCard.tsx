@@ -18,13 +18,10 @@ const EmployeeDisplayCard = ({ employee }: props) => {
     return "male";
   };
   return (
-    <Card sx={{ minWidth: 275, borderRadius: 3 }}>
+    <Card key={employee.id?.toString()} sx={{ minWidth: 275, borderRadius: 3 }}>
       <CardContent>
-        {/* weird error */}
-        <Typography sx={{ fontSize: 14 }}
-              color="text.secondary"
-              gutterBottom>
-          ID: {employee.id}
+        <Typography variant="body2" >
+          ID: {employee.id?.toString()}
         </Typography>
 
         <Typography variant="body2">
