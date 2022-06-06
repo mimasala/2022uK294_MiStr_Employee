@@ -14,7 +14,7 @@ const ProtectedRoute = ({ children }: any) => {
   };
   useEffect(() => {
     isAuthorized();
-  }, []);
+  }, []); 
 
   return authorized ? children : <Navigate to={"/login"} />;
 };
