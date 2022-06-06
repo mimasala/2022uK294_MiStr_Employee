@@ -3,7 +3,7 @@ import { API } from "./API";
 import Employee from "./EmployeeModel";
 import EmployeeModelWithoutID from "./EmployeeModelWithoutID";
 
-const deleteEmployeeById = (id: string):void => {
+export const deleteEmployeeById = (id: string):void => {
   API.delete(`employee/${id}`);
 };
 
@@ -31,4 +31,8 @@ export const updateEmployeeByID = (id: number, employee: EmployeeModelWithoutID)
 
 export const createEmployee = (employee: EmployeeModelWithoutID) => {
   return API.post("employee", employee);
+}
+
+export const testAuthenticated = () =>{
+  return API.get(`employee/${10001}`)
 }

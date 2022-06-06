@@ -18,29 +18,26 @@ const EmployeeDisplayCard = ({ employee }: props) => {
     return "male";
   };
   return (
-    <Card key={employee.id?.toString()} sx={{ minWidth: 275, borderRadius: 3 }}>
+    <Card
+      elevation={7}
+      key={employee.id?.toString()}
+      sx={{ minWidth: 275, borderRadius: 3 }}
+    >
       <CardContent>
-        <Typography variant="body2" >
-          ID: {employee.id?.toString()}
-        </Typography>
-
+        <Typography variant="body2">ID: {employee.id?.toString()}</Typography>
         <Typography variant="body2">
           Last Name: {employee.first_name}
         </Typography>
-
-        <Typography variant="body2">
-          Gender: {getGender(employee.gender)}
-        </Typography>
-
         <Typography variant="body2">
           First Name: {employee.last_name}
         </Typography>
-
         <Typography variant="body2">
           Birth date: {employee.birth_date}
         </Typography>
-
         <Typography variant="body2">Hire Date: {employee.hire_date}</Typography>
+        <Typography variant="body2">
+          Gender: {getGender(employee.gender)}
+        </Typography>
       </CardContent>
       <CardActions>
         <Button size="small" href={`/employee/${employee.id}`}>

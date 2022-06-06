@@ -5,22 +5,63 @@ import LoginPage from "./components/pages/LoginPage";
 import Welcome from "./components/pages/welcome";
 import EmployeeAbout from "./components/pages/EmployeeAbout";
 import CreateEmployee from "./components/pages/CreateEmployee";
+import ProtectedRoute from "./components/atoms/ProtectedRoute";
+import SpeedDialEmployee from "./components/molecules/SpeedDialEmployee";
+import SideBar from "./components/organisms/SideBar";
+import { ThemeProvider } from "@emotion/react";
+import theme from "./components/pages/ThemeProvider/ThemeProvider";
+import LoginSuccessfulPage from "./components/pages/LoginSuccessfulPage";
 
 function App() {
-
-
-
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route index element={<Welcome />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<Welcome />} />
-          <Route path="/employee" element={<AllEmployees />} />
-          <Route path="/employee/:id" element={<EmployeeAbout />} />
-          <Route path="/employee/create" element={<CreateEmployee />} />
-        </Routes>
+        <ThemeProvider theme={theme}>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <Welcome />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/employee"
+              element={
+                <ProtectedRoute>
+                  <AllEmployees />
+                  <SpeedDialEmployee />
+                  <SideBar />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/employee/:id"
+              element={
+                <ProtectedRoute>
+                  <EmployeeAbout />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/employee/create"
+              element={
+                <ProtectedRoute>
+                  <CreateEmployee />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/success"
+              element={
+                <LoginSuccessfulPage/>
+              }
+            />
+          </Routes>
+          <SideBar />
+        </ThemeProvider>
       </BrowserRouter>
     </div>
   );
