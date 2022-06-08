@@ -90,6 +90,35 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
               name="first_name"
             />
 
+            {/* <DatePicker
+              mask="____-__-__"
+              label="Birth Date"
+              inputFormat="yyyy-MM-dd"
+              value={formik.values.birth_date}
+              onChange={formik.handleChange}
+              renderInput={(params) => (
+                <TextField
+                  name="birth_date"
+                  id="birth_date"
+                  type="date"
+                  {...params}
+                />
+              )}
+            />
+
+            <DatePicker
+              mask="____-__-__"
+              label="Hire Date"
+              inputFormat="yyyy-MM-dd"
+              value={formik.values.hire_date}
+              onChange={formik.handleChange}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                />
+              )}
+            /> */}
+
             <TextField
               onChange={formik.handleChange}
               value={formik.values.birth_date}
@@ -143,7 +172,6 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
           >
             Submit
           </Button>
-          <DeleteEmployeeButton handleDeleteClick={handleDeleteClick}/>
         </Box>
       </div>
     </LocalizationProvider>

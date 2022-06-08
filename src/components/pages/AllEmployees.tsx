@@ -35,9 +35,7 @@ const AllEmployees = () => {
           <Grid container sx={{ justifyContent: "center" }} spacing={2}>
             {employees.map((emplo: Employee) => (
               <Grid item key={emplo.id?.toString()}>
-                <div>
-                  <EmployeeDisplayCard employee={emplo} />
-                </div>
+                <EmployeeDisplayCard employee={emplo} />
               </Grid>
             ))}
           </Grid>
