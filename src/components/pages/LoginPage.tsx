@@ -72,12 +72,10 @@ const LoginPage = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 12,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -99,7 +97,6 @@ const LoginPage = () => {
           </Snackbar>
         </Box>
       </Container>
-    </ThemeProvider>
   );
 };
 
