@@ -19,7 +19,7 @@ const EmployeeDisplayCard = ({ employee }: props) => {
   };
   return (
     <Card
-      elevation={7}
+      elevation={3}
       key={employee.id?.toString()}
       sx={{ minWidth: 275, borderRadius: 3, maxWidth: 275,  }}
     >

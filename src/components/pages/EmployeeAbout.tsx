@@ -75,6 +75,7 @@ const EmployeeAbout = () => {
           sx={{
             borderRadius: 5,
           }}
+          elevation={3}
         >
           <Box
             sx={{

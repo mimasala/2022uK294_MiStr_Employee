@@ -11,12 +11,7 @@ import {
 import { useFormik } from "formik";
 import { useState } from "react";
 import * as yup from "yup";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import {
-  DatePicker,
-  DesktopDatePicker,
-  LocalizationProvider,
-} from "@mui/x-date-pickers";
+
 import EmployeeModelWithoutID from "../../employee/EmployeeModelWithoutID";
 import { State } from "../pages/LoginPage";
 import DeleteEmployeeButton from "../atoms/DeleteEmployeeButton";
@@ -58,7 +53,6 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
   });
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div>
         <Box component="form" onSubmit={formik.handleSubmit}>
           <Stack spacing={5}>
@@ -146,7 +140,6 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
           <DeleteEmployeeButton handleDeleteClick={handleDeleteClick}/>
         </Box>
       </div>
-    </LocalizationProvider>
   );
 };
 

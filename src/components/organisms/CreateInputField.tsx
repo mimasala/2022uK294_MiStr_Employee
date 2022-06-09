@@ -11,12 +11,7 @@ import {
   import { useFormik } from "formik";
   import { useState } from "react";
   import * as yup from "yup";
-  import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-  import {
-    DatePicker,
-    DesktopDatePicker,
-    LocalizationProvider,
-  } from "@mui/x-date-pickers";
+
   import EmployeeModelWithoutID from "../../employee/EmployeeModelWithoutID";
   import { State } from "../pages/LoginPage";
   import DeleteEmployeeButton from "../atoms/DeleteEmployeeButton";
@@ -37,7 +32,6 @@ import {
   
   const CreateInputField = ({handleSubmitUpdate}:props) => {
   
-  
     const formik = useFormik({
       initialValues: {
         last_name: "",
@@ -53,7 +47,6 @@ import {
     });
   
     return (
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
         <div>
           <Box component="form" onSubmit={formik.handleSubmit}>
             <Stack spacing={5}>
@@ -84,35 +77,6 @@ import {
                 label="First Name"
                 name="first_name"
               />
-  
-              {/* <DatePicker
-                mask="____-__-__"
-                label="Birth Date"
-                inputFormat="yyyy-MM-dd"
-                value={formik.values.birth_date}
-                onChange={formik.handleChange}
-                renderInput={(params) => (
-                  <TextField
-                    name="birth_date"
-                    id="birth_date"
-                    type="date"
-                    {...params}
-                  />
-                )}
-              />
-  
-              <DatePicker
-                mask="____-__-__"
-                label="Hire Date"
-                inputFormat="yyyy-MM-dd"
-                value={formik.values.hire_date}
-                onChange={formik.handleChange}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                  />
-                )}
-              /> */}
   
               <TextField
                 onChange={formik.handleChange}
@@ -169,7 +133,6 @@ import {
             </Button>
           </Box>
         </div>
-      </LocalizationProvider>
     );
   };
   

@@ -12,7 +12,7 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "./components/pages/ThemeProvider/ThemeProvider";
 import LoginSuccessfulPage from "./components/pages/LoginSuccessfulPage";
 import { CssBaseline } from "@mui/material";
-import RightAppBar from "./components/organisms/RightAppBar";
+
 
 function App() {
   return (
