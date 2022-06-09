@@ -27,7 +27,9 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Welcome />
-                  <RightAppBar />
+
+                  <SideBar />
+
                 </ProtectedRoute>
               }
             />
@@ -46,8 +48,9 @@ function App() {
               element={
                 <ProtectedRoute>
                   <EmployeeAbout />
-                  <RightAppBar />
-                </ProtectedRoute> 
+                  <SideBar />
+                </ProtectedRoute>
+
               }
             />
             <Route
@@ -55,11 +58,21 @@ function App() {
               element={
                 <ProtectedRoute>
                   <CreateEmployee />
-                   <RightAppBar/>
+
+                  <SideBar />
                 </ProtectedRoute>
               }
             />
-            <Route path="/success" element={<LoginSuccessfulPage />} />
+            <Route
+              path="/success"
+              element={
+                <>
+                  <LoginSuccessfulPage />
+                  <SideBar />
+                </>
+              }
+            />
+
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

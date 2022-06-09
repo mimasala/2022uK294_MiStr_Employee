@@ -70,7 +70,7 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
               }
               helperText={formik.touched.last_name && formik.errors.last_name}
               margin="normal"
-              required
+              
               id="last_name"
               label="Last Name"
               name="last_name"
@@ -84,7 +84,7 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
               }
               helperText={formik.touched.first_name && formik.errors.first_name}
               margin="normal"
-              required
+              
               id="first_name"
               label="First Name"
               name="first_name"
@@ -103,7 +103,7 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
               name="birth_date"
               label="Birth Date"
               type="date"
-              required
+              
             />
             <TextField
               onChange={formik.handleChange}
@@ -116,7 +116,7 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
               name="hire_date"
               label="Hire Date"
               type="date"
-              required
+              
             />
 
             <FormControl fullWidth margin="normal">
