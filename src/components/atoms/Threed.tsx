@@ -4,7 +4,7 @@ import React from "react";
 const Threed = () => {
   return (
     <>
-      <Spline scene="https://prod.spline.design/f0J8mtqERdcTUoWu/scene.splinecode" />
+      <Spline scene="https://prod.spline.design/ipIegdJMpTtirNBh/scene.splinecode" />
     </>
   );
 };
