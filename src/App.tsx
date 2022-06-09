@@ -13,6 +13,7 @@ import theme from "./components/pages/ThemeProvider/ThemeProvider";
 import LoginSuccessfulPage from "./components/pages/LoginSuccessfulPage";
 import { CssBaseline } from "@mui/material";
 
+
 function App() {
   return (
     <div className="App">
@@ -26,7 +27,9 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Welcome />
+
                   <SideBar />
+
                 </ProtectedRoute>
               }
             />
@@ -36,7 +39,7 @@ function App() {
                 <ProtectedRoute>
                   <AllEmployees />
                   <SpeedDialEmployee />
-                  <SideBar />
+                  <RightAppBar />
                 </ProtectedRoute>
               }
             />
@@ -47,6 +50,7 @@ function App() {
                   <EmployeeAbout />
                   <SideBar />
                 </ProtectedRoute>
+
               }
             />
             <Route
@@ -54,6 +58,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <CreateEmployee />
+
                   <SideBar />
                 </ProtectedRoute>
               }
@@ -67,6 +72,7 @@ function App() {
                 </>
               }
             />
+
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

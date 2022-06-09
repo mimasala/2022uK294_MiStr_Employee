@@ -10,4 +10,5 @@ const LoginSuccessfulPage = () => {
   )
 }
 
-export default LoginSuccessfulPage
+
+export default LoginSuccessfulPage;

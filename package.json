@@ -2,6 +2,7 @@
   "name": "uek294-mischa-employee",
   "private": true,
   "version": "1.1.0",
+
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -15,14 +16,18 @@
     "@mui/material": "^5.8.2",
     "@splinetool/react-spline": "^2.2.1",
     "@splinetool/runtime": "^0.9.66",
+
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-jwt": "^1.1.6",
     "react-router-dom": "^6.3.0",
+    "three": "^0.141.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/node": "^17.0.41",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",

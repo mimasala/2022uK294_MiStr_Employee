@@ -73,9 +73,9 @@ const LoginPage = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <Card
+
           sx={{
             marginTop: 12,
             display: "flex",
@@ -108,6 +108,7 @@ const LoginPage = () => {
         <Alert severity="error">{errorMessage}</Alert>
       </Snackbar>
     </ThemeProvider>
+
   );
 };
 

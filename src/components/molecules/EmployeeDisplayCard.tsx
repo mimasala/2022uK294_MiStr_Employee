@@ -21,7 +21,7 @@ const EmployeeDisplayCard = ({ employee }: props) => {
     <Card
       elevation={3}
       key={employee.id?.toString()}
-      sx={{ minWidth: 275, borderRadius: 3 }}
+      sx={{ minWidth: 275, borderRadius: 3, maxWidth: 275,  }}
     >
       <CardContent>
         <Typography variant="body2">ID: {employee.id?.toString()}</Typography>
