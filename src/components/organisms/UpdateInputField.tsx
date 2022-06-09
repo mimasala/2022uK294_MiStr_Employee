@@ -24,8 +24,8 @@ import { deleteEmployeeById } from "../../employee/EmployeeService";
 import { useParams } from "react-router-dom";
 
 const validationSchema = yup.object({
-  last_name: yup.string().required('Required'),
-  first_name: yup.string().required('Required'),
+  last_name: yup.string().required('Required').max(15, 'Must be 15 characters or less'),
+  first_name: yup.string().required('Required').max(15, 'Must be 15 characters or less'),
   birth_date: yup.string().required('Required'),
   hire_date: yup.string().required('Required'),
   gender: yup.string().max(1).required('Required'),
@@ -89,35 +89,6 @@ const UpdateInputField = ({handleSubmitUpdate}:props) => {
               label="First Name"
               name="first_name"
             />
-
-            {/* <DatePicker
-              mask="____-__-__"
-              label="Birth Date"
-              inputFormat="yyyy-MM-dd"
-              value={formik.values.birth_date}
-              onChange={formik.handleChange}
-              renderInput={(params) => (
-                <TextField
-                  name="birth_date"
-                  id="birth_date"
-                  type="date"
-                  {...params}
-                />
-              )}
-            />
-
-            <DatePicker
-              mask="____-__-__"
-              label="Hire Date"
-              inputFormat="yyyy-MM-dd"
-              value={formik.values.hire_date}
-              onChange={formik.handleChange}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                />
-              )}
-            /> */}
 
             <TextField
               onChange={formik.handleChange}

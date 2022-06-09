@@ -11,12 +11,15 @@ import SideBar from "./components/organisms/SideBar";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./components/pages/ThemeProvider/ThemeProvider";
 import LoginSuccessfulPage from "./components/pages/LoginSuccessfulPage";
+import { CssBaseline } from "@mui/material";
+import RightAppBar from "./components/organisms/RightAppBar";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
+          <CssBaseline />
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route
@@ -24,7 +27,9 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Welcome />
+
                   <SideBar />
+
                 </ProtectedRoute>
               }
             />
@@ -34,7 +39,7 @@ function App() {
                 <ProtectedRoute>
                   <AllEmployees />
                   <SpeedDialEmployee />
-                  <SideBar />
+                  <RightAppBar />
                 </ProtectedRoute>
               }
             />
@@ -45,6 +50,7 @@ function App() {
                   <EmployeeAbout />
                   <SideBar />
                 </ProtectedRoute>
+
               }
             />
             <Route
@@ -52,6 +58,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <CreateEmployee />
+
                   <SideBar />
                 </ProtectedRoute>
               }
@@ -65,6 +72,7 @@ function App() {
                 </>
               }
             />
+
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
