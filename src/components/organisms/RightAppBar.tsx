@@ -58,7 +58,7 @@ const RightAppBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Employee
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -102,6 +102,8 @@ const RightAppBar = () => {
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Box sx={{display:"flex"}}>
+
           <Typography
             variant="h5"
             noWrap
@@ -118,7 +120,7 @@ const RightAppBar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Employee
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
@@ -137,6 +139,7 @@ const RightAppBar = () => {
             >
               Example Employee
             </Button>
+          </Box>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
           <LogoutButton/>

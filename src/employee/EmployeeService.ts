@@ -34,5 +34,5 @@ export const createEmployee = (employee: EmployeeModelWithoutID) => {
 }
 
 export const testAuthenticated = () =>{
-  return API.get(`employee/${10001}`)
+  return API.get(`employee/`)
 }

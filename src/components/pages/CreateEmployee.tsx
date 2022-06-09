@@ -7,6 +7,7 @@ import {
   createEmployee,
   updateEmployeeByID,
 } from "../../employee/EmployeeService";
+import CreateInputField from "../organisms/CreateInputField";
 import UpdateInputField from "../organisms/UpdateInputField";
 import theme from "./ThemeProvider/ThemeProvider";
 
@@ -33,7 +34,7 @@ const CreateEmployee = () => {
       <ThemeProvider theme={theme}>
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 12,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -50,7 +51,7 @@ const CreateEmployee = () => {
                 marginBottom: 8,
               }}
             >
-              <UpdateInputField
+              <CreateInputField
                 handleSubmitUpdate={(values: any) => handleSubmitUpdate(values)}
               />
             </Box>
