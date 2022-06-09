@@ -11,12 +11,14 @@ import SideBar from "./components/organisms/SideBar";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./components/pages/ThemeProvider/ThemeProvider";
 import LoginSuccessfulPage from "./components/pages/LoginSuccessfulPage";
+import { CssBaseline } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
+          <CssBaseline />
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route

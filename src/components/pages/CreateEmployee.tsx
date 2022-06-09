@@ -1,14 +1,12 @@
 import { ThemeProvider } from "@emotion/react";
-import { Box, Card, Stack, Divider, Snackbar, Alert } from "@mui/material";
-import { id } from "date-fns/locale";
-import React, { useState } from "react";
+import { Box, Card, Snackbar, Alert } from "@mui/material";
+import { useState } from "react";
 import EmployeeModelWithoutID from "../../employee/EmployeeModelWithoutID";
 import {
   createEmployee,
   updateEmployeeByID,
 } from "../../employee/EmployeeService";
 import CreateInputField from "../organisms/CreateInputField";
-import UpdateInputField from "../organisms/UpdateInputField";
 import theme from "./ThemeProvider/ThemeProvider";
 
 const CreateEmployee = () => {
@@ -44,6 +42,7 @@ const CreateEmployee = () => {
             sx={{
               borderRadius: 5,
             }}
+            elevation={3}
           >
             <Box
               sx={{

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Alert,
   Button,
+  Card,
   Grid,
   Link,
   Snackbar,
@@ -29,18 +30,18 @@ const LoginPage = () => {
     new Promise((res) => setTimeout(res, ms));
 
   const enableButtonOnResponse = async (email: any, password: any) => {
-    var successsss = false
+    var successsss = false;
     login(email, password)
       .then((value) => {
         console.log("set token");
         localStorage.setItem("token", value.data.accessToken);
-        successsss = true
+        successsss = true;
       })
       .catch((error) => {
         setErrorMessage(error.request.responseText);
         setOpenSnack({ ...openSnack, open: true });
       });
-      console.log("start wait");
+    console.log("start wait");
     await delay(500);
     if (successsss) {
       console.log("in success");
@@ -74,31 +75,38 @@ const LoginPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
+        <Card
           sx={{
             marginTop: 12,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            borderRadius:"1em",
           }}
         >
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <LoginForm checkSubmit={checkSubmit} />
-          <Button onClick={handleLogout}>Logout</Button>
-          <Snackbar
-            autoHideDuration={6000}
-            anchorOrigin={{ vertical, horizontal }}
-            open={openSnack.open}
-            onClose={handleClose}
-            key={vertical + horizontal}
-          >
-            <Alert severity="error">{errorMessage}</Alert>
-          </Snackbar>
-        </Box>
+          <Box sx={{
+            margin: 3,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <LoginForm checkSubmit={checkSubmit} />
+            <Button onClick={handleLogout}>Logout</Button>
+          </Box>
+        </Card>
       </Container>
+      <Snackbar
+        autoHideDuration={6000}
+        anchorOrigin={{ vertical, horizontal }}
+        open={openSnack.open}
+        onClose={handleClose}
+        key={vertical + horizontal}
+      >
+        <Alert severity="error">{errorMessage}</Alert>
+      </Snackbar>
     </ThemeProvider>
   );
 };
